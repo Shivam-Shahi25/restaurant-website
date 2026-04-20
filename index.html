@@ -3,247 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saffron Spoon | Fine Indian Dining Restaurant</title>
-  <!-- Google Fonts - Premium Pairing: Playfair Display (serif elegance) + Poppins (modern clean) -->
+  <title>Saffron Spoon · Authentic Indian Cookbook | Digital PDF</title>
+  <meta name="description" content="Master 50+ authentic Indian recipes with our premium digital cookbook. Includes spice guides, chef tips, and instant PDF download.">
+  <meta name="keywords" content="indian cookbook, digital recipe book, indian spices, butter chicken recipe, biryani">
+  <meta name="author" content="Saffron Spoon">
+  <meta property="og:title" content="Saffron Spoon · Authentic Indian Cookbook">
+  <meta property="og:description" content="50+ restaurant-quality Indian recipes. Instant PDF download. 30-day money-back guarantee.">
+  <meta property="og:type" content="product">
+  <meta property="og:image" content="https://placehold.co/1200x630/FF9933/FFFFFF?text=Saffron+Spoon+Cookbook">
+  <meta property="og:url" content="https://saffron-spoon.netlify.app">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- External CSS -->
   <link rel="stylesheet" href="demo.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="#" class="logo">
-      <i class="fas fa-utensils"></i> 
-      <span>Saffron</span> Spoon
-    </a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-btn"><i class="fas fa-calendar-alt"></i> Book Table</button>
-  </nav>
+<!-- Navigation -->
+<nav class="navbar">
+  <a href="#" class="logo">
+    <i class="fas fa-utensils"></i> Saffron Spoon
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-btn" onclick="scrollToBuy()">
+    <i class="fas fa-shopping-cart"></i> Buy Now
+  </button>
+</nav>
 
-  <!-- Hero Section (Split Layout) -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      <div class="hero-left">
-        <h1 class="restaurant-name">Saffron Spoon</h1>
-        <p class="tagline">Where Flavor Meets Elegance</p>
-        <p class="short-description">
-          Experience the finest Indian dining with authentic recipes, premium ingredients, 
-          and a warm ambiance that makes every meal memorable. From royal biryanis to 
-          melt-in-mouth kebabs — each dish tells a story of passion and tradition.
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="hero-left">
+      <h1 class="restaurant-name">Saffron Spoon</h1>
+      <p class="tagline">The Authentic Indian Cookbook</p>
+      <p style="font-size: 1.1rem; margin-bottom: 1rem; color: #6b6258;">
+        50+ restaurant-quality recipes · Spice mastery guides · Chef techniques · Instant PDF
+      </p>
+      <div class="price-badge">
+        <span class="current-price">$19</span>
+        <span class="old-price">$39</span>
+      </div>
+      <div>
+        <!-- 🔁 REPLACE THIS LINK WITH YOUR ACTUAL GUMROAD PRODUCT URL -->
+        <a href="https://gum.co/YOUR_GUMROAD_LINK" target="_blank" class="btn-gumroad">
+          <i class="fas fa-download"></i> Buy Now – Instant Download
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">
+          <i class="fas fa-lock"></i> Secure checkout via Gumroad · 30-day money-back
         </p>
-        <div class="hero-buttons">
-          <button class="btn-menu">Explore Menu</button>
-          <button class="btn-book">Reserve Table</button>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="food-image">
-          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop" alt="Authentic Indian Thali">
-        </div>
       </div>
     </div>
-  </section>
-
-  <!-- Menu Section - ENHANCED VERSION -->
-  <section class="menu-section" id="menu">
-    <div class="container">
-      <h2 class="section-title">Our <span>Signature Dishes</span></h2>
-      <p class="section-subtitle">Crafted with love & authentic Indian spices</p>
-      
-      <!-- Category Filter -->
-      <div class="menu-categories">
-        <button class="cat-btn active" data-category="all">All Dishes</button>
-        <button class="cat-btn" data-category="main">Main Course</button>
-        <button class="cat-btn" data-category="appetizers">Appetizers</button>
-        <button class="cat-btn" data-category="breads">Breads</button>
-        <button class="cat-btn" data-category="desserts">Desserts</button>
-      </div>
-
-      <div class="menu-grid" id="menuGrid">
-        <!-- Menu items will be dynamically loaded via JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about-section" id="about">
-    <div class="about-container">
-      <div class="about-left">
-        <div class="restaurant-image">
-          <img src="https://images.unsplash.com/photo-1600565193348-f74bd4c7cc9c?w=600&h=500&fit=crop" alt="Elegant Indian Restaurant Interior">
+    <div class="hero-right">
+      <div class="product-mockup">
+        <i class="fas fa-book-open"></i>
+        <h3 style="margin-top: 1rem;">Digital Cookbook</h3>
+        <p>PDF + Mobile-friendly</p>
+        <div style="background: rgba(255,255,255,0.5); border-radius: 20px; padding: 0.5rem; margin-top: 1rem;">
+          ⭐⭐⭐⭐⭐ 4.9/5 (3,200+ sold)
         </div>
       </div>
-      <div class="about-right">
-        <h2 class="about-title">Our <span>Story</span></h2>
-        <p class="about-story">
-          Founded in 2015, Saffron Spoon began with a simple vision: to bring authentic 
-          Indian flavors and royal dining experiences to food lovers. What started as a small 
-          family-run kitchen has now become one of the city's most beloved restaurants.
-        </p>
-        <p class="about-story">
-          Our chefs combine traditional recipes passed down through generations with modern 
-          techniques, using only the freshest locally-sourced ingredients. Every dish tells 
-          a story of passion, creativity, and commitment to culinary excellence.
-        </p>
-        <div class="about-highlight">
-          <i class="fas fa-leaf"></i> <strong>100% Fresh Ingredients</strong><br>
-          <i class="fas fa-trophy"></i> <strong>Award-winning Chefs</strong><br>
-          <i class="fas fa-crown"></i> <strong>Warm & Elegant Ambiance</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <h2 class="section-title">Our <span>Gallery</span></h2>
-      <p class="section-subtitle">A glimpse of our culinary artistry & ambiance</p>
-      <div class="gallery-grid">
-        <div class="gallery-item item-1"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&h=600&fit=crop" alt="Tandoori Platter"><div class="gallery-overlay"><span>🔥 Tandoori Platter</span></div></div>
-        <div class="gallery-item item-2"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop" alt="Royal Thali"><div class="gallery-overlay"><span>🍛 Royal Thali</span></div></div>
-        <div class="gallery-item item-3"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&h=500&fit=crop" alt="Tandoori Chicken"><div class="gallery-overlay"><span>🍗 Tandoori Chicken</span></div></div>
-        <div class="gallery-item item-4"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=500&fit=crop" alt="Butter Chicken"><div class="gallery-overlay"><span>🍛 Butter Chicken</span></div></div>
-        <div class="gallery-item item-5"><img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=800&h=600&fit=crop" alt="Biryani"><div class="gallery-overlay"><span>🍚 Hyderabadi Biryani</span></div></div>
-        <div class="gallery-item item-6"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&h=500&fit=crop" alt="Restaurant Ambiance"><div class="gallery-overlay"><span>✨ Elegant Dining</span></div></div>
-        <div class="gallery-item item-7"><img src="https://images.unsplash.com/photo-1631515243349-e0fcfd7e9e0c?w=600&h=500&fit=crop" alt="Gulab Jamun"><div class="gallery-overlay"><span>🍬 Gulab Jamun</span></div></div>
-        <div class="gallery-item item-8"><img src="https://images.unsplash.com/photo-1604909052743-94e6fef3a0c4?w=800&h=600&fit=crop" alt="Chef at Work"><div class="gallery-overlay"><span>👨‍🍳 Master Chefs</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials-section">
-    <div class="container">
-      <h2 class="section-title">What Our <span>Guests Say</span></h2>
-      <p class="section-subtitle">Real reviews from happy customers</p>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Absolutely amazing! The butter chicken is the best I've ever had. The ambiance is royal and service is impeccable. Best dining experience in years!"</p>
-          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Priya Sharma</div></div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The Hyderabadi biryani took me straight to Hyderabad! Perfect spice balance and the dal makhani is to die for. Highly recommended!"</p>
-          <div class="customer-info"><div class="customer-avatar">👨</div><div class="customer-name">Rajesh Mehta</div></div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Fantastic place for family dinners. The staff is warm, portions are generous, and the gulab jamun is outstanding. Can't wait to visit again!"</p>
-          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Neha Kapoor</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section - WITH WORKING FORM -->
-  <section class="contact-section" id="contact">
-    <div class="contact-container">
-      <div class="contact-left">
-        <h2 class="contact-title">Get in <span>Touch</span></h2>
-        <p class="contact-subtitle">We'd love to hear from you</p>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="contact-detail">
-              <h4>Address</h4>
-              <p>No. 42, 3rd Floor, Saffron Courtyard, Brigade Road, Ashok Nagar, Bengaluru - 560025, Karnataka, India</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="contact-detail">
-              <h4>Phone</h4>
-              <p>+91 98765 43210</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div class="contact-detail">
-              <h4>Email</h4>
-              <p>hello@saffronspoon.in</p>
-            </div>
-          </div>
-        </div>
-        <div class="hours-info">
-          <h4><i class="far fa-clock"></i> Opening Hours</h4>
-          <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
-          <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
-        </div>
-      </div>
-      <div class="contact-right">
-        <!-- CONTACT FORM - NOW FULLY FUNCTIONAL with "Message sent" popup -->
-        <div class="contact-form-container">
-          <form id="contactForm" class="contact-form">
-            <div class="form-group">
-              <input type="text" id="formName" placeholder="Your Name *" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="formEmail" placeholder="Your Email *" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" id="formPhone" placeholder="Phone Number (Optional)">
-            </div>
-            <div class="form-group">
-              <textarea id="formMessage" rows="4" placeholder="Your Message / Reservation Request *" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn-form">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <div class="footer-logo"><i class="fas fa-utensils"></i> <span>Saffron</span> Spoon</div>
-        <p class="footer-description">Where flavor meets elegance. Experience the finest Indian dining with authentic recipes and a warm ambiance.</p>
-      </div>
-      <div class="footer-col">
-        <h3 class="footer-title">Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3 class="footer-title">Follow Us</h3>
-        <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Saffron Spoon. All rights reserved. | Where every meal is a celebration</p>
-    </div>
-  </footer>
-
-  <!-- Message Sent Popup Toast -->
-  <div id="messageSentPopup" class="message-popup">
-    <div class="popup-content">
-      <i class="fas fa-check-circle"></i>
-      <span>Message sent successfully!</span>
     </div>
   </div>
+</section>
 
-  <script src="java.js"></script>
+<!-- Features Section -->
+<section class="features-section reveal" id="features">
+  <div class="container">
+    <h2 class="section-title">Why You'll <span>Love This Cookbook</span></h2>
+    <p class="section-subtitle">Everything you need to master Indian cooking at home</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-utensils"></i>
+        <h3>50+ Signature Recipes</h3>
+        <p>Butter chicken, biryani, dal makhani, kebabs, and more — all tested and perfected.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mortar-pestle"></i>
+        <h3>Spice Blending Guide</h3>
+        <p>Master garam masala, tandoori spice, and authentic curry powders from scratch.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-chalkboard-user"></i>
+        <h3>Chef Pro Tips</h3>
+        <p>Restaurant secrets, plating techniques, and time-saving shortcuts.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile-Friendly PDF</h3>
+        <p>Cook while you read — no internet needed. Works on phone, tablet, or computer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What's Inside -->
+<section class="inside-section reveal">
+  <div class="container">
+    <h2 class="section-title">What's <span>Inside</span>?</h2>
+    <div class="inside-grid">
+      <div class="inside-item">🍛 20+ Vegetarian Dishes</div>
+      <div class="inside-item">🍗 15+ Meat & Seafood Curries</div>
+      <div class="inside-item">🥖 10 Indian Breads & Rice</div>
+      <div class="inside-item">🍬 8 Decadent Desserts</div>
+      <div class="inside-item">🌶️ Spice Pairing Charts</div>
+      <div class="inside-item">📅 Weekly Meal Prep Guide</div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section reveal" id="testimonials">
+  <div class="container">
+    <h2 class="section-title">Loved by <span>3,000+ Home Cooks</span></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Finally my butter chicken tastes like a restaurant! The spice guide is pure gold. Worth every penny."</p>
+        <p class="customer-name">— Priya, Delhi</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Best $19 I spent. The biryani method is flawless, and the photos make it easy to follow."</p>
+        <p class="customer-name">— Michael, London</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I bought it for the dessert section. The gulab jamun recipe is addictive — I've made it 5 times!"</p>
+        <p class="customer-name">— Sofia, NYC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantee -->
+<section class="guarantee-section reveal">
+  <div class="guarantee-box">
+    <i class="fas fa-shield-alt"></i>
+    <h3>100% Money-Back Guarantee</h3>
+    <p>If you don't love this cookbook within 30 days, we'll refund you fully. No questions asked.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section reveal" id="faq">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>📖 How do I get the cookbook after purchase?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">You'll receive an instant PDF download link immediately after checkout via Gumroad. It's also emailed to you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>📱 Can I read it on my phone?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes! The PDF is optimized for all devices — phone, tablet, or computer. No special app needed.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>🔄 Do I get updates?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes! Future recipe additions and updates are free for all buyers.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>💰 What's your refund policy?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">30-day money-back guarantee. If you're not satisfied, Gumroad handles the refund instantly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="buy-section">
+  <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Ready to Master Indian Cooking?</h2>
+  <p style="margin: 1rem 0;">Join 3,000+ happy cooks who transformed their kitchen skills</p>
+  <a href="https://gum.co/YOUR_GUMROAD_LINK" target="_blank" class="cta-button">
+    <i class="fas fa-shopping-cart"></i> Buy Now – Only $19
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <div class="footer-logo"><i class="fas fa-utensils"></i> <span>Saffron</span> Spoon</div>
+      <p>Authentic Indian recipes, delivered digitally.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p><i class="fas fa-envelope"></i> hello@saffronspoon.in</p>
+      <p><i class="fab fa-instagram"></i> @saffronspoon</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Saffron Spoon. All rights reserved. | Digital Cookbook</p>
+  </div>
+</footer>
+
+<!-- External JavaScript -->
+<script src="java.js"></script>
+
 </body>
 </html>
