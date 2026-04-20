@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saffron Spoon | Fine Dining Restaurant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Saffron Spoon | Fine Indian Dining Restaurant</title>
+  <!-- Google Fonts - Premium Pairing: Playfair Display (serif elegance) + Poppins (modern clean) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="demo.css">
 </head>
 <body>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
-    <a href="#" class="logo">🍽️ Saffron Spoon</a>
+    <a href="#" class="logo">
+      <i class="fas fa-utensils"></i> 
+      <span>Saffron</span> Spoon
+    </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#menu">Menu</a></li>
@@ -19,86 +24,50 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav-btn">Book Table</button>
+    <button class="nav-btn"><i class="fas fa-calendar-alt"></i> Book Table</button>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Split Layout) -->
   <section class="hero" id="home">
     <div class="hero-container">
       <div class="hero-left">
         <h1 class="restaurant-name">Saffron Spoon</h1>
         <p class="tagline">Where Flavor Meets Elegance</p>
         <p class="short-description">
-          Experience the finest dining with authentic recipes, premium ingredients, 
-          and a warm ambiance that makes every meal memorable.
+          Experience the finest Indian dining with authentic recipes, premium ingredients, 
+          and a warm ambiance that makes every meal memorable. From royal biryanis to 
+          melt-in-mouth kebabs — each dish tells a story of passion and tradition.
         </p>
         <div class="hero-buttons">
-          <button class="btn-book">Book Table</button>
-          <button class="btn-menu">View Menu</button>
+          <button class="btn-menu">Explore Menu</button>
+          <button class="btn-book">Reserve Table</button>
         </div>
       </div>
       <div class="hero-right">
         <div class="food-image">
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=600&fit=crop" alt="Gourmet dish">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop" alt="Authentic Indian Thali">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Menu Section -->
+  <!-- Menu Section - ENHANCED VERSION -->
   <section class="menu-section" id="menu">
     <div class="container">
       <h2 class="section-title">Our <span>Signature Dishes</span></h2>
-      <p class="section-subtitle">Crafted with love & fresh ingredients</p>
+      <p class="section-subtitle">Crafted with love & authentic Indian spices</p>
       
-      <div class="menu-grid">
-        <div class="dish-card">
-          <div class="dish-image"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=200&fit=crop" alt="Margherita Pizza"></div>
-          <h3 class="dish-name">Margherita Pizza</h3>
-          <p class="dish-desc">Fresh mozzarella, tomato basil, extra virgin olive oil</p>
-          <div class="dish-price">₹550</div>
-          <button class="order-btn">Order Now</button>
-        </div>
+      <!-- Category Filter -->
+      <div class="menu-categories">
+        <button class="cat-btn active" data-category="all">All Dishes</button>
+        <button class="cat-btn" data-category="main">Main Course</button>
+        <button class="cat-btn" data-category="appetizers">Appetizers</button>
+        <button class="cat-btn" data-category="breads">Breads</button>
+        <button class="cat-btn" data-category="desserts">Desserts</button>
+      </div>
 
-        <div class="dish-card">
-          <div class="dish-image"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop" alt="Classic Burger"></div>
-          <h3 class="dish-name">Classic Burger</h3>
-          <p class="dish-desc">Angus beef, cheddar, lettuce, tomato, special sauce</p>
-          <div class="dish-price">₹450</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-
-        <div class="dish-card">
-          <div class="dish-image"><img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=200&h=200&fit=crop" alt="Rainbow Roll"></div>
-          <h3 class="dish-name">Rainbow Roll</h3>
-          <p class="dish-desc">Fresh salmon, avocado, cucumber, sesame seeds</p>
-          <div class="dish-price">₹680</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-
-        <div class="dish-card">
-          <div class="dish-image"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&h=200&fit=crop" alt="Mediterranean Salad"></div>
-          <h3 class="dish-name">Mediterranean Salad</h3>
-          <p class="dish-desc">Feta, olives, cucumber, tomatoes, lemon herb dressing</p>
-          <div class="dish-price">₹380</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-
-        <div class="dish-card">
-          <div class="dish-image"><img src="https://images.unsplash.com/photo-1645112411344-0d5fe3e10af1?w=200&h=200&fit=crop" alt="Fettuccine Alfredo"></div>
-          <h3 class="dish-name">Fettuccine Alfredo</h3>
-          <p class="dish-desc">Creamy parmesan sauce, fresh parsley, garlic bread</p>
-          <div class="dish-price">₹520</div>
-          <button class="order-btn">Order Now</button>
-        </div>
-
-        <div class="dish-card">
-          <div class="dish-image"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=200&fit=crop" alt="Grilled Ribeye Steak"></div>
-          <h3 class="dish-name">Grilled Ribeye Steak</h3>
-          <p class="dish-desc">12oz steak, rosemary butter, roasted vegetables, signature sauce</p>
-          <div class="dish-price">₹999</div>
-          <button class="order-btn">Order Now</button>
-        </div>
+      <div class="menu-grid" id="menuGrid">
+        <!-- Menu items will be dynamically loaded via JavaScript -->
       </div>
     </div>
   </section>
@@ -108,25 +77,25 @@
     <div class="about-container">
       <div class="about-left">
         <div class="restaurant-image">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop" alt="Restaurant interior">
+          <img src="https://images.unsplash.com/photo-1600565193348-f74bd4c7cc9c?w=600&h=500&fit=crop" alt="Elegant Indian Restaurant Interior">
         </div>
       </div>
       <div class="about-right">
         <h2 class="about-title">Our <span>Story</span></h2>
         <p class="about-story">
           Founded in 2015, Saffron Spoon began with a simple vision: to bring authentic 
-          flavors and exceptional dining experiences to food lovers. What started as a small 
+          Indian flavors and royal dining experiences to food lovers. What started as a small 
           family-run kitchen has now become one of the city's most beloved restaurants.
         </p>
         <p class="about-story">
-          Our chefs combine traditional recipes with modern techniques, using only the 
-          freshest locally-sourced ingredients. Every dish tells a story of passion, 
-          creativity, and commitment to excellence.
+          Our chefs combine traditional recipes passed down through generations with modern 
+          techniques, using only the freshest locally-sourced ingredients. Every dish tells 
+          a story of passion, creativity, and commitment to culinary excellence.
         </p>
         <div class="about-highlight">
-          <strong>✨ 100% Fresh Ingredients</strong><br>
-          ✨ Award-winning Chefs<br>
-          ✨ Warm & Elegant Ambiance
+          <i class="fas fa-leaf"></i> <strong>100% Fresh Ingredients</strong><br>
+          <i class="fas fa-trophy"></i> <strong>Award-winning Chefs</strong><br>
+          <i class="fas fa-crown"></i> <strong>Warm & Elegant Ambiance</strong>
         </div>
       </div>
     </div>
@@ -136,17 +105,16 @@
   <section class="gallery-section" id="gallery">
     <div class="container">
       <h2 class="section-title">Our <span>Gallery</span></h2>
-      <p class="section-subtitle">A glimpse of our culinary artistry</p>
-      
+      <p class="section-subtitle">A glimpse of our culinary artistry & ambiance</p>
       <div class="gallery-grid">
-        <div class="gallery-item item-1"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&h=600&fit=crop" alt="Wood Fired Pizza"><div class="gallery-overlay"><span>🍕 Wood Fired Pizza</span></div></div>
-        <div class="gallery-item item-2"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&h=500&fit=crop" alt="Fresh Sushi"><div class="gallery-overlay"><span>🍣 Fresh Sushi</span></div></div>
-        <div class="gallery-item item-3"><img src="https://images.unsplash.com/photo-1603162525935-6e78f008a93b?w=600&h=800&fit=crop" alt="Grilled Steak"><div class="gallery-overlay"><span>🥩 Grilled Steak</span></div></div>
-        <div class="gallery-item item-4"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=500&fit=crop" alt="Desserts"><div class="gallery-overlay"><span>🍰 Desserts</span></div></div>
-        <div class="gallery-item item-5"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=500&fit=crop" alt="Fresh Salads"><div class="gallery-overlay"><span>🥗 Fresh Salads</span></div></div>
-        <div class="gallery-item item-6"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&h=500&fit=crop" alt="Pasta"><div class="gallery-overlay"><span>🍝 Pasta</span></div></div>
-        <div class="gallery-item item-7"><img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&h=500&fit=crop" alt="Wine Selection"><div class="gallery-overlay"><span>🍷 Wine Selection</span></div></div>
-        <div class="gallery-item item-8"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop" alt="Restaurant Ambiance"><div class="gallery-overlay"><span>🌅 Restaurant Ambiance</span></div></div>
+        <div class="gallery-item item-1"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&h=600&fit=crop" alt="Tandoori Platter"><div class="gallery-overlay"><span>🔥 Tandoori Platter</span></div></div>
+        <div class="gallery-item item-2"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop" alt="Royal Thali"><div class="gallery-overlay"><span>🍛 Royal Thali</span></div></div>
+        <div class="gallery-item item-3"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&h=500&fit=crop" alt="Tandoori Chicken"><div class="gallery-overlay"><span>🍗 Tandoori Chicken</span></div></div>
+        <div class="gallery-item item-4"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=500&fit=crop" alt="Butter Chicken"><div class="gallery-overlay"><span>🍛 Butter Chicken</span></div></div>
+        <div class="gallery-item item-5"><img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=800&h=600&fit=crop" alt="Biryani"><div class="gallery-overlay"><span>🍚 Hyderabadi Biryani</span></div></div>
+        <div class="gallery-item item-6"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&h=500&fit=crop" alt="Restaurant Ambiance"><div class="gallery-overlay"><span>✨ Elegant Dining</span></div></div>
+        <div class="gallery-item item-7"><img src="https://images.unsplash.com/photo-1631515243349-e0fcfd7e9e0c?w=600&h=500&fit=crop" alt="Gulab Jamun"><div class="gallery-overlay"><span>🍬 Gulab Jamun</span></div></div>
+        <div class="gallery-item item-8"><img src="https://images.unsplash.com/photo-1604909052743-94e6fef3a0c4?w=800&h=600&fit=crop" alt="Chef at Work"><div class="gallery-overlay"><span>👨‍🍳 Master Chefs</span></div></div>
       </div>
     </div>
   </section>
@@ -156,70 +124,81 @@
     <div class="container">
       <h2 class="section-title">What Our <span>Guests Say</span></h2>
       <p class="section-subtitle">Real reviews from happy customers</p>
-      
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Absolutely amazing! The flavors are incredible and the service is top-notch. Best dining experience I've had in years. Will definitely come back!"</p>
-          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Sarah Johnson</div></div>
+          <p class="testimonial-text">"Absolutely amazing! The butter chicken is the best I've ever had. The ambiance is royal and service is impeccable. Best dining experience in years!"</p>
+          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Priya Sharma</div></div>
         </div>
-
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The atmosphere is wonderful and the food is even better. Their signature pasta dish is to die for! Highly recommend to anyone looking for quality dining."</p>
-          <div class="customer-info"><div class="customer-avatar">👨</div><div class="customer-name">Michael Chen</div></div>
+          <p class="testimonial-text">"The Hyderabadi biryani took me straight to Hyderabad! Perfect spice balance and the dal makhani is to die for. Highly recommended!"</p>
+          <div class="customer-info"><div class="customer-avatar">👨</div><div class="customer-name">Rajesh Mehta</div></div>
         </div>
-
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Fantastic place for family dinners. The staff is friendly, portions are generous, and the dessert menu is outstanding. Can't wait to visit again!"</p>
-          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Emily Rodriguez</div></div>
+          <p class="testimonial-text">"Fantastic place for family dinners. The staff is warm, portions are generous, and the gulab jamun is outstanding. Can't wait to visit again!"</p>
+          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Neha Kapoor</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Section - WITH WORKING FORM -->
   <section class="contact-section" id="contact">
     <div class="contact-container">
       <div class="contact-left">
         <h2 class="contact-title">Get in <span>Touch</span></h2>
         <p class="contact-subtitle">We'd love to hear from you</p>
-        
         <div class="contact-info">
           <div class="contact-item">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="contact-detail">
               <h4>Address</h4>
               <p>No. 42, 3rd Floor, Saffron Courtyard, Brigade Road, Ashok Nagar, Bengaluru - 560025, Karnataka, India</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
             <div class="contact-detail">
               <h4>Phone</h4>
               <p>+91 98765 43210</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">✉️</div>
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
             <div class="contact-detail">
               <h4>Email</h4>
               <p>hello@saffronspoon.in</p>
             </div>
           </div>
         </div>
-        
         <div class="hours-info">
-          <h4>Opening Hours</h4>
+          <h4><i class="far fa-clock"></i> Opening Hours</h4>
           <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
           <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
         </div>
       </div>
-
       <div class="contact-right">
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.043655147914!2d77.60667297487996!3d12.971599087352332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3eae7e0f8e5!2sBrigade%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- CONTACT FORM - NOW FULLY FUNCTIONAL with "Message sent" popup -->
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <input type="text" id="formName" placeholder="Your Name *" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="formEmail" placeholder="Your Email *" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="formPhone" placeholder="Phone Number (Optional)">
+            </div>
+            <div class="form-group">
+              <textarea id="formMessage" rows="4" placeholder="Your Message / Reservation Request *" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn-form">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -229,8 +208,8 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-col">
-        <div class="footer-logo">🍽️ <span>Saffron</span> Spoon</div>
-        <p class="footer-description">Where flavor meets elegance. Experience the finest dining with authentic recipes and a warm ambiance.</p>
+        <div class="footer-logo"><i class="fas fa-utensils"></i> <span>Saffron</span> Spoon</div>
+        <p class="footer-description">Where flavor meets elegance. Experience the finest Indian dining with authentic recipes and a warm ambiance.</p>
       </div>
       <div class="footer-col">
         <h3 class="footer-title">Quick Links</h3>
@@ -245,18 +224,26 @@
       <div class="footer-col">
         <h3 class="footer-title">Follow Us</h3>
         <div class="social-icons">
-          <a href="#" class="social-icon">📘</a>
-          <a href="#" class="social-icon">📸</a>
-          <a href="#" class="social-icon">🐦</a>
-          <a href="#" class="social-icon">▶️</a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Saffron Spoon. All rights reserved.</p>
+      <p>&copy; 2025 Saffron Spoon. All rights reserved. | Where every meal is a celebration</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Message Sent Popup Toast -->
+  <div id="messageSentPopup" class="message-popup">
+    <div class="popup-content">
+      <i class="fas fa-check-circle"></i>
+      <span>Message sent successfully!</span>
+    </div>
+  </div>
+
+  <script src="java.js"></script>
 </body>
 </html>
