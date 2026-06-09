@@ -1,4 +1,4 @@
-// ========== SAFFRON SPOON - PREMIUM RESTAURANT WEBSITE ==========
+// ========== Southy Foody - PREMIUM RESTAURANT WEBSITE ==========
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: "Priya Sharma", text: "Absolutely amazing! The butter chicken is the best I've ever had. The ambiance is royal and service is impeccable!", rating: 5, avatar: "👩", verified: true },
         { name: "Rajesh Mehta", text: "The Hyderabadi biryani took me straight to Hyderabad! Perfect spice balance and the dal makhani is to die for.", rating: 5, avatar: "👨", verified: true },
         { name: "Neha Kapoor", text: "Fantastic place for family dinners. The staff is warm, portions are generous, and the gulab jamun is outstanding!", rating: 5, avatar: "👩", verified: true },
-        { name: "Michael Chen", text: "As a foodie who's tried many Indian restaurants, Saffron Spoon stands out. Authentic flavors, beautiful presentation.", rating: 5, avatar: "👨", verified: true },
+        { name: "Michael Chen", text: "As a foodie who's tried many Indian restaurants, Southy Foody stands out. Authentic flavors, beautiful presentation.", rating: 5, avatar: "👨", verified: true },
         { name: "Sarah Williams", text: "The ambiance is perfect for a date night. The staff went above and beyond to make our anniversary special.", rating: 5, avatar: "👩", verified: true },
         { name: "Vikram Singh", text: "Best Indian food in Bengaluru! The tandoori platter is a must-try. Will definitely come back.", rating: 5, avatar: "👨", verified: true }
     ];
@@ -375,5 +375,5 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    console.log('Saffron Spoon - Premium Restaurant Website Loaded!');
+    console.log('Southy Foody - Premium Restaurant Website Loaded!');
 });
