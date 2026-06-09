@@ -1,544 +1,379 @@
-// script.js - Premium Scroll Reveal Animations & Enhanced Menu Interactive Effects
-// INCLUDES FIXED CONTACT FORM WITH "MESSAGE SENT" POPUP
+// ========== SAFFRON SPOON - PREMIUM RESTAURANT WEBSITE ==========
 
-// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== ENHANCED MENU DATA WITH RATINGS AND ICONS ==========
-    const menuItemsData = [
-      {
-        id: 1,
-        name: "Butter Chicken",
-        price: 550,
-        description: "Creamy tomato gravy, tender tandoori chicken, fresh cream & kasuri methi",
-        category: "main",
-        rating: 4.8,
-        reviews: 234,
-        image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop",
-        badge: "🔥 Most Popular",
-        prepTime: "20-25 min",
-        calories: "580 cal",
-        diet: "non-veg",
-        spicy: false
-      },
-      {
-        id: 2,
-        name: "Hyderabadi Biryani",
-        price: 480,
-        description: "Aromatic basmati rice, slow-cooked marinated chicken, saffron & fried onions",
-        category: "main",
-        rating: 4.9,
-        reviews: 312,
-        image: "https://images.unsplash.com/photo-1630383249896-424e482df921?w=400&h=300&fit=crop",
-        badge: "⭐ Chef's Special",
-        prepTime: "25-30 min",
-        calories: "720 cal",
-        diet: "non-veg",
-        spicy: true
-      },
-      {
-        id: 3,
-        name: "Paneer Tikka",
-        price: 420,
-        description: "Cottage cheese marinated in spiced yogurt, grilled in tandoor with bell peppers",
-        category: "appetizers",
-        rating: 4.7,
-        reviews: 178,
-        image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop",
-        badge: "🌱 Veg Favorite",
-        prepTime: "15-20 min",
-        calories: "380 cal",
-        diet: "veg",
-        spicy: true
-      },
-      {
-        id: 4,
-        name: "Dal Makhani",
-        price: 380,
-        description: "Black lentils slow-cooked overnight with butter, cream & aromatic spices",
-        category: "main",
-        rating: 4.6,
-        reviews: 145,
-        image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&h=300&fit=crop",
-        badge: "🥇 Award Winner",
-        prepTime: "Ready",
-        calories: "450 cal",
-        diet: "veg",
-        spicy: false
-      },
-      {
-        id: 5,
-        name: "Garlic Naan",
-        price: 90,
-        description: "Soft tandoor-baked bread, fresh garlic, coriander & butter glaze",
-        category: "breads",
-        rating: 4.5,
-        reviews: 567,
-        image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=400&h=300&fit=crop",
-        badge: "🥖 Best Seller",
-        prepTime: "5-7 min",
-        calories: "220 cal",
-        diet: "veg",
-        spicy: false
-      },
-      {
-        id: 6,
-        name: "Gulab Jamun",
-        price: 180,
-        description: "Warm milk dumplings soaked in cardamom-scented sugar syrup, garnished with nuts",
-        category: "desserts",
-        rating: 4.9,
-        reviews: 423,
-        image: "https://images.unsplash.com/photo-1631515243349-e0fcfd7e9e0c?w=400&h=300&fit=crop",
-        badge: "🍬 Sweet Treat",
-        prepTime: "5 min",
-        calories: "310 cal",
-        diet: "veg",
-        spicy: false
-      },
-      {
-        id: 7,
-        name: "Chicken Tikka",
-        price: 490,
-        description: "Boneless chicken marinated in yogurt & spices, grilled to perfection",
-        category: "appetizers",
-        rating: 4.7,
-        reviews: 198,
-        image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=300&fit=crop",
-        badge: "🔥 Sizzling",
-        prepTime: "15-20 min",
-        calories: "420 cal",
-        diet: "non-veg",
-        spicy: true
-      },
-      {
-        id: 8,
-        name: "Rasmalai",
-        price: 200,
-        description: "Soft cottage cheese patties in creamy saffron milk, topped with pistachios",
-        category: "desserts",
-        rating: 4.8,
-        reviews: 267,
-        image: "https://images.unsplash.com/photo-1568572933382-74d440642117?w=400&h=300&fit=crop",
-        badge: "✨ Premium",
-        prepTime: "Ready",
-        calories: "280 cal",
-        diet: "veg",
-        spicy: false
-      }
+    // ========== PRELOADER ==========
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hide');
+        }, 2000);
+    }
+    
+    // ========== CUSTOM CURSOR ==========
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    
+    if (cursor && cursorFollower && window.innerWidth > 1024) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
+            cursorFollower.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+        });
+        
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursorFollower.style.transform = 'scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorFollower.style.transform = 'scale(1)';
+            });
+        });
+    }
+    
+    // ========== NAVBAR SCROLL EFFECT ==========
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // ========== MOBILE MENU ==========
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (mobileClose) {
+        mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    document.querySelectorAll('.mobile-links a, .mobile-book').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // ========== ACTIVE NAV LINK ON SCROLL ==========
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // ========== AOS INITIALIZATION ==========
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+    
+    // ========== MENU DATA ==========
+    const menuItems = [
+        { id: 1, name: "Butter Chicken", price: 550, category: "main", description: "Creamy tomato gravy, tender tandoori chicken", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=150&h=150&fit=crop", rating: 4.8, badge: "🔥 Most Popular" },
+        { id: 2, name: "Hyderabadi Biryani", price: 480, category: "main", description: "Aromatic basmati rice, slow-cooked chicken", image: "https://images.unsplash.com/photo-1630383249896-424e482df921?w=150&h=150&fit=crop", rating: 4.9, badge: "⭐ Chef's Special" },
+        { id: 3, name: "Paneer Tikka", price: 420, category: "appetizers", description: "Cottage cheese marinated in spiced yogurt", image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=150&h=150&fit=crop", rating: 4.7, badge: "🌱 Veg Favorite" },
+        { id: 4, name: "Dal Makhani", price: 380, category: "main", description: "Black lentils slow-cooked overnight", image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=150&h=150&fit=crop", rating: 4.6, badge: "🥇 Award Winner" },
+        { id: 5, name: "Garlic Naan", price: 90, category: "breads", description: "Soft tandoor-baked bread with garlic", image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=150&h=150&fit=crop", rating: 4.5, badge: "🥖 Best Seller" },
+        { id: 6, name: "Gulab Jamun", price: 180, category: "desserts", description: "Warm milk dumplings in sugar syrup", image: "https://images.unsplash.com/photo-1631515243349-e0fcfd7e9e0c?w=150&h=150&fit=crop", rating: 4.9, badge: "🍬 Sweet Treat" },
+        { id: 7, name: "Chicken Tikka", price: 490, category: "appetizers", description: "Boneless chicken grilled to perfection", image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=150&h=150&fit=crop", rating: 4.7, badge: "🔥 Sizzling" },
+        { id: 8, name: "Rasmalai", price: 200, category: "desserts", description: "Soft cheese patties in saffron milk", image: "https://images.unsplash.com/photo-1568572933382-74d440642117?w=150&h=150&fit=crop", rating: 4.8, badge: "✨ Premium" },
+        { id: 9, name: "Mango Lassi", price: 120, category: "beverages", description: "Refreshing yogurt drink with mango", image: "https://images.unsplash.com/photo-1627308597516-29ae64e8f9e4?w=150&h=150&fit=crop", rating: 4.6, badge: "🥭 Refreshing" },
+        { id: 10, name: "Masala Chai", price: 80, category: "beverages", description: "Traditional Indian spiced tea", image: "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=150&h=150&fit=crop", rating: 4.7, badge: "☕ Classic" }
     ];
-
-    // ========== CONTACT FORM FIX WITH "MESSAGE SENT" POPUP ==========
-    const contactForm = document.getElementById('contactForm');
-    const messagePopup = document.getElementById('messageSentPopup');
     
-    function showMessagePopup(message, isError = false) {
-      if (!messagePopup) return;
-      const popupSpan = messagePopup.querySelector('.popup-content span');
-      if (popupSpan) popupSpan.textContent = message || 'Message sent successfully!';
-      
-      // Change icon color for error
-      const icon = messagePopup.querySelector('.popup-content i');
-      if (icon) {
-        if (isError) {
-          icon.style.color = '#ef4444';
-          icon.className = 'fas fa-exclamation-circle';
-        } else {
-          icon.style.color = '#10b981';
-          icon.className = 'fas fa-check-circle';
-        }
-      }
-      
-      messagePopup.classList.add('show');
-      
-      setTimeout(() => {
-        messagePopup.classList.remove('show');
-        // Reset to default message
-        if (popupSpan) popupSpan.textContent = 'Message sent successfully!';
-        if (icon && !isError) {
-          icon.style.color = '#10b981';
-          icon.className = 'fas fa-check-circle';
-        }
-      }, 3500);
-    }
+    // Featured dishes
+    const featuredDishes = menuItems.slice(0, 3);
     
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // CRITICAL: Prevents page reload - makes form functional!
+    // Render featured dishes
+    function renderFeatured() {
+        const grid = document.getElementById('featuredGrid');
+        if (!grid) return;
         
-        const name = document.getElementById('formName')?.value.trim() || '';
-        const email = document.getElementById('formEmail')?.value.trim() || '';
-        const phone = document.getElementById('formPhone')?.value.trim() || '';
-        const message = document.getElementById('formMessage')?.value.trim() || '';
-        
-        // Validation
-        if (!name) {
-          showMessagePopup('❌ Please enter your name', true);
-          return;
-        }
-        if (!email) {
-          showMessagePopup('❌ Email address is required', true);
-          return;
-        }
-        const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-          showMessagePopup('📧 Please enter a valid email address', true);
-          return;
-        }
-        if (!message) {
-          showMessagePopup('✏️ Message cannot be empty', true);
-          return;
-        }
-        if (message.length < 5) {
-          showMessagePopup('💬 Message must be at least 5 characters', true);
-          return;
-        }
-        
-        // SUCCESS: Show "Message sent" popup
-        showMessagePopup('✓ Message sent successfully!', false);
-        
-        // Log to console for debugging
-        console.log('Contact Form Submitted:', { name, email, phone, message });
-        
-        // Optional: Clear form after successful submission
-        document.getElementById('formName').value = '';
-        document.getElementById('formEmail').value = '';
-        document.getElementById('formPhone').value = '';
-        document.getElementById('formMessage').value = '';
-      });
-    }
-
-    // Function to render stars
-    function renderStars(rating) {
-      const fullStars = Math.floor(rating);
-      const hasHalfStar = rating % 1 >= 0.5;
-      let starsHTML = '';
-      
-      for (let i = 1; i <= 5; i++) {
-        if (i <= fullStars) {
-          starsHTML += '<i class="fas fa-star"></i>';
-        } else if (i === fullStars + 1 && hasHalfStar) {
-          starsHTML += '<i class="fas fa-star-half-alt"></i>';
-        } else {
-          starsHTML += '<i class="far fa-star"></i>';
-        }
-      }
-      return starsHTML;
-    }
-
-    // Order notification function
-    function showOrderNotification(dishName, price) {
-      const notification = document.createElement('div');
-      notification.className = 'order-notification';
-      notification.innerHTML = `
-        <i class="fas fa-check-circle"></i>
-        <div>
-          <strong>${dishName}</strong> added to cart! 
-          <span style="color: #c17a2b;">₹${price}</span>
-        </div>
-      `;
-      notification.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: white;
-        padding: 15px 25px;
-        border-radius: 50px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: 'Poppins', sans-serif;
-        animation: slideInRight 0.3s ease;
-        border-left: 4px solid #c17a2b;
-      `;
-      
-      document.body.appendChild(notification);
-      
-      setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-      }, 2500);
-    }
-
-    // Function to render enhanced menu items
-    function renderEnhancedMenu(items) {
-      const menuGrid = document.getElementById('menuGrid');
-      if (!menuGrid) return;
-      
-      menuGrid.innerHTML = '';
-      
-      items.forEach((item, index) => {
-        const card = document.createElement('div');
-        card.className = 'dish-card';
-        card.style.animationDelay = `${index * 0.05}s`;
-        
-        card.innerHTML = `
-          <div class="dish-image-wrapper">
-            <div class="dish-image">
-              <img src="${item.image}" alt="${item.name}" loading="lazy">
+        grid.innerHTML = featuredDishes.map(dish => `
+            <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="featured-image">
+                    <img src="${dish.image}" alt="${dish.name}" loading="lazy">
+                    <div class="featured-badge">${dish.badge}</div>
+                </div>
+                <div class="featured-content">
+                    <h3>${dish.name}</h3>
+                    <div class="featured-price">₹${dish.price}</div>
+                    <p class="featured-desc">${dish.description}</p>
+                    <button class="featured-order" data-dish="${dish.name}" data-price="${dish.price}">
+                        <i class="fas fa-shopping-cart"></i> Order Now
+                    </button>
+                </div>
             </div>
-            <div class="dish-badge">${item.badge}</div>
-          </div>
-          <div class="dish-content">
-            <div class="dish-header">
-              <h3 class="dish-name">${item.name}</h3>
-              <span class="dish-price">₹${item.price}</span>
-            </div>
-            <div class="dish-rating">
-              <div class="stars">
-                ${renderStars(item.rating)}
-              </div>
-              <span class="rating-value">${item.rating}</span>
-              <span class="review-count">(${item.reviews} reviews)</span>
-            </div>
-            <p class="dish-desc">${item.description}</p>
-            <div class="dish-meta">
-              <div class="meta-item">
-                <i class="far fa-clock"></i>
-                <span>${item.prepTime}</span>
-              </div>
-              <div class="meta-item">
-                <i class="fas fa-fire"></i>
-                <span>${item.calories}</span>
-              </div>
-              <div class="meta-item">
-                <i class="fas ${item.diet === 'veg' ? 'fa-leaf' : 'fa-drumstick-bite'}"></i>
-                <span>${item.diet === 'veg' ? 'Veg' : 'Non-Veg'}</span>
-              </div>
-              ${item.spicy ? '<div class="meta-item"><i class="fas fa-pepper-hot"></i><span>Spicy</span></div>' : ''}
-            </div>
-            <button class="order-btn" data-dish="${item.name}" data-price="${item.price}">
-              <i class="fas fa-shopping-cart"></i>
-              Order Now
-            </button>
-          </div>
-        `;
+        `).join('');
         
-        menuGrid.appendChild(card);
-      });
-      
-      // Add click handlers to order buttons
-      document.querySelectorAll('.order-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const dishName = btn.getAttribute('data-dish');
-          const dishPrice = btn.getAttribute('data-price');
-          
-          // Add cart animation
-          btn.classList.add('cart-pop');
-          setTimeout(() => btn.classList.remove('cart-pop'), 300);
-          
-          // Show order confirmation
-          showOrderNotification(dishName, dishPrice);
-        });
-      });
+        addOrderListeners();
     }
-
-    // Category filter functionality
-    function setupCategoryFilter() {
-      const categoryBtns = document.querySelectorAll('.cat-btn');
-      if (!categoryBtns.length) return;
-      
-      categoryBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Update active state
-          categoryBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          
-          // Filter items
-          const category = btn.getAttribute('data-category');
-          let filteredItems;
-          
-          if (category === 'all') {
-            filteredItems = menuItemsData;
-          } else {
-            filteredItems = menuItemsData.filter(item => item.category === category);
-          }
-          
-          // Render filtered items with animation
-          const menuGrid = document.getElementById('menuGrid');
-          if (menuGrid) {
-            menuGrid.style.opacity = '0';
-            setTimeout(() => {
-              renderEnhancedMenu(filteredItems);
-              menuGrid.style.opacity = '1';
-            }, 150);
-          }
-        });
-      });
+    
+    // Render full menu
+    function renderMenu(filter = 'all') {
+        const grid = document.getElementById('menuGrid');
+        if (!grid) return;
+        
+        const filtered = filter === 'all' ? menuItems : menuItems.filter(item => item.category === filter);
+        
+        grid.innerHTML = filtered.map(dish => `
+            <div class="dish-card">
+                <img src="${dish.image}" alt="${dish.name}" class="dish-image">
+                <div class="dish-content">
+                    <div class="dish-header">
+                        <span class="dish-name">${dish.name}</span>
+                        <span class="dish-price">₹${dish.price}</span>
+                    </div>
+                    <p class="dish-desc">${dish.description}</p>
+                    <div class="dish-rating">
+                        ${'⭐'.repeat(Math.floor(dish.rating))} ${dish.rating}
+                    </div>
+                    <button class="dish-order" data-dish="${dish.name}" data-price="${dish.price}">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        `).join('');
+        
+        addOrderListeners();
     }
-
-    // Initialize enhanced menu
-    function initEnhancedMenu() {
-      renderEnhancedMenu(menuItemsData);
-      setupCategoryFilter();
-    }
-
-    // Call enhanced menu initialization
-    initEnhancedMenu();
     
-    // Add reveal classes to sections for scroll animations
-    const sections = document.querySelectorAll('.hero, .menu-section, .about-section, .gallery-section, .testimonials-section, .contact-section');
-    sections.forEach(section => {
-        section.classList.add('reveal');
-    });
-    
-    // Add stagger animation to dish cards with delay for premium feel
-    const dishCards = document.querySelectorAll('.dish-card');
-    dishCards.forEach((card, index) => {
-        card.classList.add('stagger-item');
-        card.style.transitionDelay = `${index * 0.05}s`;
-    });
-    
-    // Add reveal scale to gallery items
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-        item.classList.add('reveal-scale');
-    });
-    
-    // Add stagger animation to testimonial cards
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    testimonialCards.forEach((card, index) => {
-        card.classList.add('stagger-item');
-        card.style.transitionDelay = `${index * 0.08}s`;
-    });
-    
-    // Add split reveal animations to about section
-    const aboutLeft = document.querySelector('.about-left');
-    const aboutRight = document.querySelector('.about-right');
-    if (aboutLeft) aboutLeft.classList.add('reveal-left');
-    if (aboutRight) aboutRight.classList.add('reveal-right');
-    
-    // Add split reveal animations to contact section
-    const contactLeft = document.querySelector('.contact-left');
-    const contactRight = document.querySelector('.contact-right');
-    if (contactLeft) contactLeft.classList.add('reveal-left');
-    if (contactRight) contactRight.classList.add('reveal-right');
-    
-    // Navbar scroll effect - changes style when scrolling
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+    // Add order button listeners
+    function addOrderListeners() {
+        document.querySelectorAll('.featured-order, .dish-order').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const dishName = btn.getAttribute('data-dish');
+                const dishPrice = btn.getAttribute('data-price');
+                showNotification(`${dishName} added to cart! ₹${dishPrice}`);
+                
+                // Add animation
+                btn.classList.add('cart-pop');
+                setTimeout(() => btn.classList.remove('cart-pop'), 300);
+            });
         });
     }
     
-    // Intersection Observer for scroll-triggered animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
+    // Category filter
+    function setupFilters() {
+        const catBtns = document.querySelectorAll('.cat-btn');
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.getAttribute('data-category');
+                renderMenu(category);
+            });
         });
-    }, observerOptions);
+    }
     
-    // Observe all elements with reveal animation classes
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-item');
-    revealElements.forEach(el => {
-        observer.observe(el);
-    });
+    // ========== TESTIMONIALS DATA ==========
+    const testimonials = [
+        { name: "Priya Sharma", text: "Absolutely amazing! The butter chicken is the best I've ever had. The ambiance is royal and service is impeccable!", rating: 5, avatar: "👩", verified: true },
+        { name: "Rajesh Mehta", text: "The Hyderabadi biryani took me straight to Hyderabad! Perfect spice balance and the dal makhani is to die for.", rating: 5, avatar: "👨", verified: true },
+        { name: "Neha Kapoor", text: "Fantastic place for family dinners. The staff is warm, portions are generous, and the gulab jamun is outstanding!", rating: 5, avatar: "👩", verified: true },
+        { name: "Michael Chen", text: "As a foodie who's tried many Indian restaurants, Saffron Spoon stands out. Authentic flavors, beautiful presentation.", rating: 5, avatar: "👨", verified: true },
+        { name: "Sarah Williams", text: "The ambiance is perfect for a date night. The staff went above and beyond to make our anniversary special.", rating: 5, avatar: "👩", verified: true },
+        { name: "Vikram Singh", text: "Best Indian food in Bengaluru! The tandoori platter is a must-try. Will definitely come back.", rating: 5, avatar: "👨", verified: true }
+    ];
     
-    // Ripple effect for all buttons (premium micro-interaction)
-    const buttons = document.querySelectorAll('.btn-book, .btn-menu, .order-btn, .nav-btn, .submit-btn-form');
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple');
-            this.appendChild(ripple);
-            
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
-            ripple.style.width = ripple.style.height = `${Math.max(rect.width, rect.height)}px`;
+    function renderTestimonials() {
+        const grid = document.getElementById('testimonialsGrid');
+        if (!grid) return;
+        
+        grid.innerHTML = testimonials.map(t => `
+            <div class="testimonial-card" data-aos="fade-up">
+                <div class="testimonial-stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+                <p class="testimonial-text">"${t.text}"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">${t.avatar}</div>
+                    <div>
+                        <div class="testimonial-name">${t.name}</div>
+                        ${t.verified ? '<div class="testimonial-verified"><i class="fas fa-check-circle"></i> Verified Guest</div>' : ''}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // ========== GALLERY DATA ==========
+    const galleryImages = [
+        { src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=500&fit=crop", title: "Tandoori Platter", class: "item-1" },
+        { src: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop", title: "Royal Thali", class: "item-2" },
+        { src: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&h=500&fit=crop", title: "Tandoori Chicken", class: "item-3" },
+        { src: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=500&fit=crop", title: "Butter Chicken", class: "item-4" },
+        { src: "https://images.unsplash.com/photo-1630383249896-424e482df921?w=600&h=500&fit=crop", title: "Hyderabadi Biryani", class: "item-5" },
+        { src: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&h=500&fit=crop", title: "Elegant Dining", class: "item-6" },
+        { src: "https://images.unsplash.com/photo-1631515243349-e0fcfd7e9e0c?w=600&h=500&fit=crop", title: "Gulab Jamun", class: "item-7" },
+        { src: "https://images.unsplash.com/photo-1604909052743-94e6fef3a0c4?w=600&h=500&fit=crop", title: "Master Chefs", class: "item-8" }
+    ];
+    
+    function renderGallery() {
+        const grid = document.getElementById('galleryGrid');
+        if (!grid) return;
+        
+        grid.innerHTML = galleryImages.map(img => `
+            <div class="gallery-item ${img.class}">
+                <img src="${img.src}" alt="${img.title}" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>${img.title}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // ========== NOTIFICATION FUNCTION ==========
+    function showNotification(message) {
+        const notification = document.getElementById('notification');
+        const messageSpan = document.getElementById('notificationMessage');
+        
+        if (notification && messageSpan) {
+            messageSpan.textContent = message;
+            notification.classList.add('show');
             
             setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    }
     
-    // Smooth scroll for all anchor links with offset for fixed navbar
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    // ========== RESERVATION FORM ==========
+    const reservationForm = document.getElementById('reservationForm');
+    if (reservationForm) {
+        reservationForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-                const offsetTop = targetElement.offsetTop - navbarHeight;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Image lazy loading with fade-in effect
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        if (img.complete) {
-            img.style.opacity = '1';
-        } else {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.4s ease';
-        }
-    });
-    
-    // Subtle parallax effect on hero image
-    window.addEventListener('scroll', function() {
-        const heroImage = document.querySelector('.food-image');
-        if (heroImage && window.scrollY < window.innerHeight) {
-            const scrolled = window.scrollY;
-            heroImage.style.transform = `translateY(${scrolled * 0.08}px)`;
-        }
-    });
-    
-    // Add hover sound effect simulation (visual feedback only - premium touch)
-    const interactiveElements = document.querySelectorAll('.dish-card, .testimonial-card, .gallery-item, .social-icon');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', function() {
-            // Subtle scale pulse effect for premium feel
-            this.style.transition = 'all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-        });
-    });
-    
-    // Button click feedback for Book Table button
-    const bookTableBtn = document.querySelector('.nav-btn, .btn-book');
-    if (bookTableBtn) {
-        bookTableBtn.addEventListener('click', function(e) {
-            // Scroll to contact section for booking
-            const contactSection = document.querySelector('#contact');
-            if (contactSection && this.classList.contains('nav-btn')) {
-                e.preventDefault();
-                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-                const offsetTop = contactSection.offsetTop - navbarHeight;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
+            showNotification('🎉 Table reserved! We\'ll contact you shortly.');
+            reservationForm.reset();
         });
     }
+    
+    // ========== NEWSLETTER FORM ==========
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showNotification('📧 Subscribed! Check your inbox for 10% off.');
+            newsletterForm.reset();
+        });
+    }
+    
+    // ========== BACK TO TOP BUTTON ==========
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    
+    // ========== BUTTON SCROLL HANDLERS ==========
+    const bookTableBtn = document.getElementById('bookTableBtn');
+    const heroBookBtn = document.getElementById('heroBookBtn');
+    const mobileBookBtn = document.getElementById('mobileBookBtn');
+    const heroMenuBtn = document.getElementById('heroMenuBtn');
+    
+    if (bookTableBtn) {
+        bookTableBtn.addEventListener('click', () => {
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    
+    if (heroBookBtn) {
+        heroBookBtn.addEventListener('click', () => {
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    
+    if (mobileBookBtn) {
+        mobileBookBtn.addEventListener('click', () => {
+            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    if (heroMenuBtn) {
+        heroMenuBtn.addEventListener('click', () => {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    
+    // ========== SMOOTH SCROLL FOR ALL ANCHORS ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const navbarHeight = navbar ? navbar.offsetHeight : 80;
+                const offsetTop = target.offsetTop - navbarHeight;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // ========== INITIALIZE ALL ==========
+    renderFeatured();
+    renderMenu();
+    renderTestimonials();
+    renderGallery();
+    setupFilters();
+    
+    // ========== ADD RIPPLE EFFECT STYLES ==========
+    const style = document.createElement('style');
+    style.textContent = `
+        .cart-pop {
+            animation: cartPop 0.3s ease;
+        }
+        @keyframes cartPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .featured-order, .dish-order {
+            transition: all 0.3s ease;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    console.log('Saffron Spoon - Premium Restaurant Website Loaded!');
 });
