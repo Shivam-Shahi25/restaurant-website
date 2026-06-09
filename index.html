@@ -1,251 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3718076995984067"
-     crossorigin="anonymous"></script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saffron Spoon | Fine Indian Dining Restaurant</title>
-  <!-- Google Fonts - Premium Pairing: Playfair Display (serif elegance) + Poppins (modern clean) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Saffron Spoon | Premium Indian Dining in Bengaluru 🍛</title>
+  <meta name="description" content="Experience the finest authentic Indian dining in Bengaluru. Royal biryanis, melt-in-mouth kebabs, and warm elegance. Book your table today.">
+  <meta name="keywords" content="indian restaurant bengaluru, best indian food, saffron spoon, brigade road restaurant, authentic indian cuisine">
+  <meta name="author" content="Saffron Spoon">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Saffron Spoon | Premium Indian Dining 🍛">
+  <meta property="og:description" content="Where flavor meets elegance. Authentic Indian cuisine in the heart of Bengaluru.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200&h=630&fit=crop">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="en_IN">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saffron Spoon | Premium Indian Dining">
+  <meta name="twitter:description" content="Where flavor meets elegance. Authentic Indian cuisine in Bengaluru.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍛</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="demo.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="#" class="logo">
-      <i class="fas fa-utensils"></i> 
-      <span>Saffron</span> Spoon
-    </a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-btn"><i class="fas fa-calendar-alt"></i> Book Table</button>
-  </nav>
-
-  <!-- Hero Section (Split Layout) -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      <div class="hero-left">
-        <h1 class="restaurant-name">Saffron Spoon</h1>
-        <p class="tagline">Where Flavor Meets Elegance</p>
-        <p class="short-description">
-          Experience the finest Indian dining with authentic recipes, premium ingredients, 
-          and a warm ambiance that makes every meal memorable. From royal biryanis to 
-          melt-in-mouth kebabs — each dish tells a story of passion and tradition.
-        </p>
-        <div class="hero-buttons">
-          <button class="btn-menu">Explore Menu</button>
-          <button class="btn-book">Reserve Table</button>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="food-image">
-          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop" alt="Authentic Indian Thali">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu Section - ENHANCED VERSION -->
-  <section class="menu-section" id="menu">
-    <div class="container">
-      <h2 class="section-title">Our <span>Signature Dishes</span></h2>
-      <p class="section-subtitle">Crafted with love & authentic Indian spices</p>
-      
-      <!-- Category Filter -->
-      <div class="menu-categories">
-        <button class="cat-btn active" data-category="all">All Dishes</button>
-        <button class="cat-btn" data-category="main">Main Course</button>
-        <button class="cat-btn" data-category="appetizers">Appetizers</button>
-        <button class="cat-btn" data-category="breads">Breads</button>
-        <button class="cat-btn" data-category="desserts">Desserts</button>
-      </div>
-
-      <div class="menu-grid" id="menuGrid">
-        <!-- Menu items will be dynamically loaded via JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about-section" id="about">
-    <div class="about-container">
-      <div class="about-left">
-        <div class="restaurant-image">
-          <img src="https://images.unsplash.com/photo-1600565193348-f74bd4c7cc9c?w=600&h=500&fit=crop" alt="Elegant Indian Restaurant Interior">
-        </div>
-      </div>
-      <div class="about-right">
-        <h2 class="about-title">Our <span>Story</span></h2>
-        <p class="about-story">
-          Founded in 2015, Saffron Spoon began with a simple vision: to bring authentic 
-          Indian flavors and royal dining experiences to food lovers. What started as a small 
-          family-run kitchen has now become one of the city's most beloved restaurants.
-        </p>
-        <p class="about-story">
-          Our chefs combine traditional recipes passed down through generations with modern 
-          techniques, using only the freshest locally-sourced ingredients. Every dish tells 
-          a story of passion, creativity, and commitment to culinary excellence.
-        </p>
-        <div class="about-highlight">
-          <i class="fas fa-leaf"></i> <strong>100% Fresh Ingredients</strong><br>
-          <i class="fas fa-trophy"></i> <strong>Award-winning Chefs</strong><br>
-          <i class="fas fa-crown"></i> <strong>Warm & Elegant Ambiance</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <h2 class="section-title">Our <span>Gallery</span></h2>
-      <p class="section-subtitle">A glimpse of our culinary artistry & ambiance</p>
-      <div class="gallery-grid">
-        <div class="gallery-item item-1"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&h=600&fit=crop" alt="Tandoori Platter"><div class="gallery-overlay"><span>🔥 Tandoori Platter</span></div></div>
-        <div class="gallery-item item-2"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop" alt="Royal Thali"><div class="gallery-overlay"><span>🍛 Royal Thali</span></div></div>
-        <div class="gallery-item item-3"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&h=500&fit=crop" alt="Tandoori Chicken"><div class="gallery-overlay"><span>🍗 Tandoori Chicken</span></div></div>
-        <div class="gallery-item item-4"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=500&fit=crop" alt="Butter Chicken"><div class="gallery-overlay"><span>🍛 Butter Chicken</span></div></div>
-        <div class="gallery-item item-5"><img src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=800&h=600&fit=crop" alt="Biryani"><div class="gallery-overlay"><span>🍚 Hyderabadi Biryani</span></div></div>
-        <div class="gallery-item item-6"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&h=500&fit=crop" alt="Restaurant Ambiance"><div class="gallery-overlay"><span>✨ Elegant Dining</span></div></div>
-        <div class="gallery-item item-7"><img src="https://images.unsplash.com/photo-1631515243349-e0fcfd7e9e0c?w=600&h=500&fit=crop" alt="Gulab Jamun"><div class="gallery-overlay"><span>🍬 Gulab Jamun</span></div></div>
-        <div class="gallery-item item-8"><img src="https://images.unsplash.com/photo-1604909052743-94e6fef3a0c4?w=800&h=600&fit=crop" alt="Chef at Work"><div class="gallery-overlay"><span>👨‍🍳 Master Chefs</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials-section">
-    <div class="container">
-      <h2 class="section-title">What Our <span>Guests Say</span></h2>
-      <p class="section-subtitle">Real reviews from happy customers</p>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Absolutely amazing! The butter chicken is the best I've ever had. The ambiance is royal and service is impeccable. Best dining experience in years!"</p>
-          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Priya Sharma</div></div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The Hyderabadi biryani took me straight to Hyderabad! Perfect spice balance and the dal makhani is to die for. Highly recommended!"</p>
-          <div class="customer-info"><div class="customer-avatar">👨</div><div class="customer-name">Rajesh Mehta</div></div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Fantastic place for family dinners. The staff is warm, portions are generous, and the gulab jamun is outstanding. Can't wait to visit again!"</p>
-          <div class="customer-info"><div class="customer-avatar">👩</div><div class="customer-name">Neha Kapoor</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section - WITH WORKING FORM -->
-  <section class="contact-section" id="contact">
-    <div class="contact-container">
-      <div class="contact-left">
-        <h2 class="contact-title">Get in <span>Touch</span></h2>
-        <p class="contact-subtitle">We'd love to hear from you</p>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="contact-detail">
-              <h4>Address</h4>
-              <p>Kurubara halli, channeh halli, Tararakere, Karnataka, India</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="contact-detail">
-              <h4>Phone</h4>
-              <p>+91 9431453730</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div class="contact-detail">
-              <h4>Email</h4>
-              <p>pmj@sainikschoolamaravathinagar.edu.in</p>
-            </div>
-          </div>
-        </div>
-        <div class="hours-info">
-          <h4><i class="far fa-clock"></i> Opening Hours</h4>
-          <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
-          <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
-        </div>
-      </div>
-      <div class="contact-right">
-        <!-- CONTACT FORM - NOW FULLY FUNCTIONAL with "Message sent" popup -->
-        <div class="contact-form-container">
-          <form id="contactForm" class="contact-form">
-            <div class="form-group">
-              <input type="text" id="formName" placeholder="Your Name *" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="formEmail" placeholder="Your Email *" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" id="formPhone" placeholder="Phone Number (Optional)">
-            </div>
-            <div class="form-group">
-              <textarea id="formMessage" rows="4" placeholder="Your Message / Reservation Request *" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn-form">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <div class="footer-logo"><i class="fas fa-utensils"></i> <span>Saffron</span> Spoon</div>
-        <p class="footer-description">Where flavor meets elegance. Experience the finest Indian dining with authentic recipes and a warm ambiance.</p>
-      </div>
-      <div class="footer-col">
-        <h3 class="footer-title">Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3 class="footer-title">Follow Us</h3>
-        <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Saffron Spoon. All rights reserved. | Where every meal is a celebration</p>
-    </div>
-  </footer>
-
-  <!-- Message Sent Popup Toast -->
-  <div id="messageSentPopup" class="message-popup">
-    <div class="popup-content">
-      <i class="fas fa-check-circle"></i>
-      <span>Message sent successfully!</span>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="spice-icon">🌶️</div>
+      <div class="preloader-text">Saffron Spoon</div>
+      <div class="preloader-line"></div>
     </div>
   </div>
 
+  <!-- CURSOR (Desktop only) -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-utensil-spoon"></i>
+        <span>Saffron</span> Spoon
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#about" class="nav-link">Our Story</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="tel:+919876543210" class="nav-call">
+          <i class="fas fa-phone-alt"></i>
+          <span>+91 98765 43210</span>
+        </a>
+        <button class="nav-btn" id="bookTableBtn">
+          <i class="fas fa-calendar-alt"></i> Book Table
+        </button>
+        <div class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="logo">🍛 Saffron Spoon</div>
+      <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+    </div>
+    <ul class="mobile-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-footer">
+      <a href="tel:+919431453730" class="mobile-call"><i class="fas fa-phone-alt"></i> Call Now</a>
+      <button class="mobile-book" id="mobileBookBtn">Book a Table</button>
+    </div>
+  </div>
+
+  <!-- ========== HERO SECTION - HITS HARD ========== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-bg-video">
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&h=1080&fit=crop">
+        <source src="https://cdn.pixabay.com/video/2022/03/27/113850-693337288_large.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-container">
+      <div class="hero-badge" data-aos="fade-up" data-aos-duration="800">
+        <span class="badge-icon">⭐</span> Bengaluru's #1 Fine Dining
+      </div>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        Best Indian Food in <span class="highlight">Bengaluru</span> 🍛🔥
+      </h1>
+      <div class="hero-tagline" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <span class="tagline-item"><i class="fas fa-crown"></i> Royal Ambiance</span>
+        <span class="tagline-item"><i class="fas fa-fire"></i> Authentic Recipes</span>
+        <span class="tagline-item"><i class="fas fa-star"></i> 5-Star Service</span>
+      </div>
+      <p class="hero-description" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        Experience the finest Indian dining with authentic recipes passed down through generations. 
+        From royal biryanis to melt-in-mouth kebabs — each dish tells a story of passion and tradition.
+      </p>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <button class="btn-primary" id="heroBookBtn">
+          <i class="fas fa-calendar-check"></i> Reserve Your Table
+        </button>
+        <button class="btn-secondary" id="heroMenuBtn">
+          <i class="fas fa-utensils"></i> Explore Menu
+        </button>
+      </div>
+      <div class="hero-stats" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+        <div class="stat">
+          <div class="stat-number">10,000+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-number">4.9</div>
+          <div class="stat-label">⭐ Google Rating</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Award-Winning Dishes</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll to explore</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED DISHES SECTION ========== -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Signature Creations</span>
+        <h2 class="section-title">Chef's <span>Special Selection</span></h2>
+        <p class="section-desc">Experience the pinnacle of Indian culinary artistry</p>
+      </div>
+      <div class="featured-grid" id="featuredGrid">
+        <!-- Featured dishes loaded via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MENU SECTION WITH PRICES ========== -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Our Culinary Offerings</span>
+        <h2 class="section-title">Explore Our <span>Menu</span></h2>
+        <p class="section-desc">Authentic flavors crafted with passion and premium ingredients</p>
+      </div>
+      
+      <!-- Category Filters -->
+      <div class="menu-categories" data-aos="fade-up" data-aos-delay="100">
+        <button class="cat-btn active" data-category="all">All Dishes</button>
+        <button class="cat-btn" data-category="appetizers">🔥 Appetizers</button>
+        <button class="cat-btn" data-category="main">🍛 Main Course</button>
+        <button class="cat-btn" data-category="breads">🥖 Breads</button>
+        <button class="cat-btn" data-category="desserts">🍬 Desserts</button>
+        <button class="cat-btn" data-category="beverages">🥤 Beverages</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid" data-aos="fade-up" data-aos-delay="200">
+        <!-- Menu items loaded via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION - STORY (People love stories) ========== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
+          <div class="about-image-main">
+            <img src="https://images.unsplash.com/photo-1600565193348-f74bd4c7cc9c?w=800&h=900&fit=crop" alt="Saffron Spoon Restaurant Interior">
+          </div>
+          <div class="about-image-small">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=400&fit=crop" alt="Chef preparing food">
+          </div>
+          <div class="about-experience-badge">
+            <span class="exp-years">10+</span>
+            <span class="exp-text">Years of<br>Culinary Excellence</span>
+          </div>
+        </div>
+        <div class="about-content" data-aos="fade-left" data-aos-duration="1000">
+          <span class="about-badge">Our Story</span>
+          <h2 class="about-title">Where Flavor <span>Meets Elegance</span></h2>
+          <p class="about-story">
+            Founded in <strong>2015</strong>, Saffron Spoon began with a simple vision: to bring authentic 
+            Indian flavors and royal dining experiences to food lovers. What started as a small 
+            family-run kitchen has now become one of Bengaluru's most beloved restaurants.
+          </p>
+          <p class="about-story">
+            Our chefs combine traditional recipes passed down through <strong>generations</strong> with modern 
+            techniques, using only the freshest locally-sourced ingredients. Every dish tells 
+            a story of passion, creativity, and commitment to culinary excellence.
+          </p>
+          <div class="about-features">
+            <div class="about-feature">
+              <i class="fas fa-leaf"></i>
+              <div>
+                <h4>100% Fresh Ingredients</h4>
+                <p>Sourced daily from local farms</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-trophy"></i>
+              <div>
+                <h4>Award-Winning Chefs</h4>
+                <p>Recognized for culinary excellence</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-crown"></i>
+              <div>
+                <h4>Warm & Elegant Ambiance</h4>
+                <p>Perfect for every occasion</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-quote">
+            <i class="fas fa-quote-left"></i>
+            <p>"Every meal at Saffron Spoon is a celebration of India's rich culinary heritage."</p>
+            <span>- Chef Rajiv Sharma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY SECTION ========== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Visual Delights</span>
+        <h2 class="section-title">Our <span>Gallery</span></h2>
+        <p class="section-desc">A glimpse of our culinary artistry & elegant ambiance</p>
+      </div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid" data-aos="fade-up">
+      <!-- Gallery images loaded via JS -->
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS SECTION WITH GOOGLE REVIEWS ========== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Guest Love</span>
+        <h2 class="section-title">What Our <span>Guests Say</span></h2>
+        <p class="section-desc">Join 10,000+ happy customers who've dined with us</p>
+      </div>
+      
+      <!-- Google Rating Summary -->
+      <div class="google-rating-summary" data-aos="fade-up" data-aos-delay="100">
+        <div class="google-logo">
+          <i class="fab fa-google"></i>
+          <span>Google Reviews</span>
+        </div>
+        <div class="google-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="google-score">4.9 <span>/ 5.0</span></div>
+        <div class="google-count">Based on 2,847+ reviews</div>
+      </div>
+
+      <div class="testimonials-grid" id="testimonialsGrid" data-aos="fade-up" data-aos-delay="200">
+        <!-- Testimonials loaded via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESERVATION SECTION ========== -->
+  <section class="reservation-section" id="reservation">
+    <div class="container">
+      <div class="reservation-wrapper" data-aos="fade-up">
+        <div class="reservation-content">
+          <span class="reservation-badge">Reserve Your Experience</span>
+          <h2>Book Your Table <span>Today</span></h2>
+          <p>Experience the finest Indian dining. Reserve your table for an unforgettable culinary journey.</p>
+          <div class="reservation-info">
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <strong>Opening Hours</strong>
+                <span>Mon-Fri: 11AM - 10PM</span>
+                <span>Sat-Sun: 10AM - 11PM</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <strong>Call to Book</strong>
+                <span>+91 98765 43210</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Location</strong>
+                <span>Brigade Road, Bengaluru</span>
+              </div>
+            </div>
+          </div>
+          <form class="reservation-form" id="reservationForm">
+            <div class="form-row">
+              <input type="text" placeholder="Your Name *" id="resName" required>
+              <input type="email" placeholder="Email Address *" id="resEmail" required>
+            </div>
+            <div class="form-row">
+              <input type="tel" placeholder="Phone Number *" id="resPhone" required>
+              <input type="date" placeholder="Date" id="resDate" required>
+            </div>
+            <div class="form-row">
+              <select id="resTime" required>
+                <option value="">Select Time</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>6:00 PM</option>
+                <option>7:00 PM</option>
+                <option>8:00 PM</option>
+                <option>9:00 PM</option>
+              </select>
+              <select id="resGuests" required>
+                <option value="">Number of Guests</option>
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+                <option>5+ Guests</option>
+              </select>
+            </div>
+            <textarea placeholder="Special Requests (Dietary restrictions, occasions, etc.)" id="resMessage" rows="3"></textarea>
+            <button type="submit" class="btn-reserve">
+              <i class="fas fa-calendar-check"></i> Reserve Your Table
+            </button>
+          </form>
+        </div>
+        <div class="reservation-image">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=700&fit=crop" alt="Dining Experience">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info" data-aos="fade-right">
+          <span class="contact-badge">Get in Touch</span>
+          <h2>Visit <span>Us</span></h2>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Address</h4>
+                <p>Kurubara halli, channeh halli, Tararakere</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h4>Phone</h4>
+                <p>+91 94314 53730</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>pmj@sainikschoolamaravathinagar.edu.in</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-social">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map" data-aos="fade-left">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.84623456789!2d77.607123!3d12.971234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8e4f3b5c6d7e8a9!2sBrigade%20Road%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="400" 
+            style="border:0; border-radius: 24px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER SECTION ========== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-wrapper" data-aos="fade-up">
+        <div class="newsletter-icon">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <h3>Get Exclusive Offers & Updates</h3>
+        <p>Subscribe to our newsletter and get 10% off your first dine-in experience!</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email address" id="newsletterEmail" required>
+          <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <i class="fas fa-utensil-spoon"></i>
+            <span>Saffron</span> Spoon
+          </div>
+          <p class="footer-description">Where flavor meets elegance. Experience the finest Indian dining with authentic recipes and a warm ambiance.</p>
+          <div class="footer-payment">
+            <span>Accepted Payments:</span>
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-google-pay"></i>
+            <i class="fas fa-rupee-sign"></i>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Opening Hours</h4>
+          <ul class="hours-list">
+            <li><span>Monday - Friday:</span> 11:00 AM - 10:00 PM</li>
+            <li><span>Saturday - Sunday:</span> 10:00 AM - 11:00 PM</li>
+            <li><span>Holidays:</span> Open (Call ahead)</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="contact-list">
+            <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
+            <li><i class="fas fa-envelope"></i> hello@saffronspoon.in</li>
+            <li><i class="fab fa-instagram"></i> @saffronspoon</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Saffron Spoon. All rights reserved. | Crafted with <i class="fas fa-heart"></i> in Bengaluru</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- NOTIFICATION POPUP -->
+  <div class="notification" id="notification">
+    <div class="notification-content">
+      <i class="fas fa-check-circle"></i>
+      <span id="notificationMessage">Message sent successfully!</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="java.js"></script>
 </body>
 </html>
