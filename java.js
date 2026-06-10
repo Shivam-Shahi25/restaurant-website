@@ -1,13 +1,82 @@
-// ========== Southy Foody - PREMIUM RESTAURANT WEBSITE ==========
+// ========== SAFFRON SPOON - PREMIUM RESTAURANT WEBSITE ==========
+
+// Order Counter - Global for admin access
+let totalOrders = parseInt(localStorage.getItem('totalOrders')) || 0;
+
+// Admin Dashboard Function
+function updateAdminOrders() {
+    const orderCount = document.getElementById('orderCount');
+    if (orderCount) {
+        orderCount.textContent = totalOrders;
+    }
+}
+
+// Admin Login - Available globally for button
+window.showAdminPanel = function () {
+    const password = prompt("Enter Admin Password");
+
+    if (password === "admin123") {
+        const adminPanel = document.getElementById("adminPanel");
+        if (adminPanel) {
+            adminPanel.style.display = "block";
+            updateAdminOrders();
+        }
+    } else if (password !== null) {
+        alert("Access Denied - Incorrect Password");
+    }
+};
+
+// Function to add order (called when users order food)
+function addOrder(itemName, itemPrice) {
+    totalOrders++;
+    localStorage.setItem('totalOrders', totalOrders);
+    updateAdminOrders();
+    showNotification(`✅ Added to cart: ${itemName} - ₹${itemPrice}`);
+    
+    // Save to cart history
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name: itemName, price: itemPrice, timestamp: new Date().toISOString() });
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Order button handler
+function orderHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const dishName = this.getAttribute('data-dish');
+    const dishPrice = this.getAttribute('data-price');
+    if (dishName && dishPrice) {
+        addOrder(dishName, dishPrice);
+        this.classList.add('cart-pop');
+        setTimeout(() => this.classList.remove('cart-pop'), 300);
+    }
+}
+
+// Attach listeners to all order buttons
+function addOrderListeners() {
+    document.querySelectorAll('.featured-order, .dish-order').forEach(btn => {
+        btn.removeEventListener('click', orderHandler);
+        btn.addEventListener('click', orderHandler);
+    });
+}
+
+// Global notification function
+window.showNotification = function(message) {
+    const notification = document.getElementById('notification');
+    const messageSpan = document.getElementById('notificationMessage');
+    if (notification && messageSpan) {
+        messageSpan.textContent = message;
+        notification.classList.add('show');
+        setTimeout(() => notification.classList.remove('show'), 3000);
+    }
+};
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========== PRELOADER ==========
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hide');
-        }, 2000);
+        setTimeout(() => preloader.classList.add('hide'), 2000);
     }
     
     // ========== CUSTOM CURSOR ==========
@@ -111,14 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 10, name: "Masala Chai", price: 80, category: "beverages", description: "Traditional Indian spiced tea", image: "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=150&h=150&fit=crop", rating: 4.7, badge: "☕ Classic" }
     ];
     
-    // Featured dishes
     const featuredDishes = menuItems.slice(0, 3);
     
-    // Render featured dishes
     function renderFeatured() {
         const grid = document.getElementById('featuredGrid');
         if (!grid) return;
-        
         grid.innerHTML = featuredDishes.map(dish => `
             <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="featured-image">
@@ -135,17 +201,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `).join('');
-        
         addOrderListeners();
     }
     
-    // Render full menu
     function renderMenu(filter = 'all') {
         const grid = document.getElementById('menuGrid');
         if (!grid) return;
-        
         const filtered = filter === 'all' ? menuItems : menuItems.filter(item => item.category === filter);
-        
         grid.innerHTML = filtered.map(dish => `
             <div class="dish-card">
                 <img src="${dish.image}" alt="${dish.name}" class="dish-image">
@@ -155,62 +217,38 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="dish-price">₹${dish.price}</span>
                     </div>
                     <p class="dish-desc">${dish.description}</p>
-                    <div class="dish-rating">
-                        ${'⭐'.repeat(Math.floor(dish.rating))} ${dish.rating}
-                    </div>
-                    <button class="dish-order" data-dish="${dish.name}" data-price="${dish.price}">
-                        Add to Cart
-                    </button>
+                    <div class="dish-rating">${'⭐'.repeat(Math.floor(dish.rating))} ${dish.rating}</div>
+                    <button class="dish-order" data-dish="${dish.name}" data-price="${dish.price}">Add to Cart</button>
                 </div>
             </div>
         `).join('');
-        
         addOrderListeners();
     }
     
-    // Add order button listeners
-    function addOrderListeners() {
-        document.querySelectorAll('.featured-order, .dish-order').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const dishName = btn.getAttribute('data-dish');
-                const dishPrice = btn.getAttribute('data-price');
-                showNotification(`${dishName} added to cart! ₹${dishPrice}`);
-                
-                // Add animation
-                btn.classList.add('cart-pop');
-                setTimeout(() => btn.classList.remove('cart-pop'), 300);
-            });
-        });
-    }
-    
-    // Category filter
     function setupFilters() {
         const catBtns = document.querySelectorAll('.cat-btn');
         catBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 catBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                const category = btn.getAttribute('data-category');
-                renderMenu(category);
+                renderMenu(btn.getAttribute('data-category'));
             });
         });
     }
     
-    // ========== TESTIMONIALS DATA ==========
+    // ========== TESTIMONIALS ==========
     const testimonials = [
-        { name: "Priya Sharma", text: "Absolutely amazing! The butter chicken is the best I've ever had. The ambiance is royal and service is impeccable!", rating: 5, avatar: "👩", verified: true },
-        { name: "Rajesh Mehta", text: "The Hyderabadi biryani took me straight to Hyderabad! Perfect spice balance and the dal makhani is to die for.", rating: 5, avatar: "👨", verified: true },
-        { name: "Neha Kapoor", text: "Fantastic place for family dinners. The staff is warm, portions are generous, and the gulab jamun is outstanding!", rating: 5, avatar: "👩", verified: true },
-        { name: "Michael Chen", text: "As a foodie who's tried many Indian restaurants, Southy Foody stands out. Authentic flavors, beautiful presentation.", rating: 5, avatar: "👨", verified: true },
-        { name: "Sarah Williams", text: "The ambiance is perfect for a date night. The staff went above and beyond to make our anniversary special.", rating: 5, avatar: "👩", verified: true },
-        { name: "Vikram Singh", text: "Best Indian food in Bengaluru! The tandoori platter is a must-try. Will definitely come back.", rating: 5, avatar: "👨", verified: true }
+        { name: "Priya Sharma", text: "Absolutely amazing! The butter chicken is the best I've ever had.", rating: 5, avatar: "👩", verified: true },
+        { name: "Rajesh Mehta", text: "The Hyderabadi biryani took me straight to Hyderabad!", rating: 5, avatar: "👨", verified: true },
+        { name: "Neha Kapoor", text: "Fantastic place for family dinners. The staff is warm!", rating: 5, avatar: "👩", verified: true },
+        { name: "Michael Chen", text: "As a foodie, Saffron Spoon stands out. Authentic flavors!", rating: 5, avatar: "👨", verified: true },
+        { name: "Sarah Williams", text: "Perfect for a date night. Made our anniversary special.", rating: 5, avatar: "👩", verified: true },
+        { name: "Vikram Singh", text: "Best Indian food in Bengaluru! Will definitely come back.", rating: 5, avatar: "👨", verified: true }
     ];
     
     function renderTestimonials() {
         const grid = document.getElementById('testimonialsGrid');
         if (!grid) return;
-        
         grid.innerHTML = testimonials.map(t => `
             <div class="testimonial-card" data-aos="fade-up">
                 <div class="testimonial-stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
@@ -226,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `).join('');
     }
     
-    // ========== GALLERY DATA ==========
+    // ========== GALLERY ==========
     const galleryImages = [
         { src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=500&fit=crop", title: "Tandoori Platter", class: "item-1" },
         { src: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=500&fit=crop", title: "Royal Thali", class: "item-2" },
@@ -241,33 +279,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderGallery() {
         const grid = document.getElementById('galleryGrid');
         if (!grid) return;
-        
         grid.innerHTML = galleryImages.map(img => `
             <div class="gallery-item ${img.class}">
                 <img src="${img.src}" alt="${img.title}" loading="lazy">
-                <div class="gallery-overlay">
-                    <span>${img.title}</span>
-                </div>
+                <div class="gallery-overlay"><span>${img.title}</span></div>
             </div>
         `).join('');
     }
     
-    // ========== NOTIFICATION FUNCTION ==========
-    function showNotification(message) {
-        const notification = document.getElementById('notification');
-        const messageSpan = document.getElementById('notificationMessage');
-        
-        if (notification && messageSpan) {
-            messageSpan.textContent = message;
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-    }
-    
-    // ========== RESERVATION FORM ==========
+    // ========== FORM HANDLERS ==========
     const reservationForm = document.getElementById('reservationForm');
     if (reservationForm) {
         reservationForm.addEventListener('submit', (e) => {
@@ -277,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== NEWSLETTER FORM ==========
     const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
@@ -287,93 +306,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== BACK TO TOP BUTTON ==========
+    // ========== BACK TO TOP ==========
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
+            backToTop.classList.toggle('show', window.scrollY > 500);
         });
-        
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
     
-    // ========== BUTTON SCROLL HANDLERS ==========
+    // ========== SCROLL BUTTONS ==========
     const bookTableBtn = document.getElementById('bookTableBtn');
     const heroBookBtn = document.getElementById('heroBookBtn');
     const mobileBookBtn = document.getElementById('mobileBookBtn');
     const heroMenuBtn = document.getElementById('heroMenuBtn');
     
-    if (bookTableBtn) {
-        bookTableBtn.addEventListener('click', () => {
-            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
-        });
-    }
+    if (bookTableBtn) bookTableBtn.addEventListener('click', () => document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' }));
+    if (heroBookBtn) heroBookBtn.addEventListener('click', () => document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' }));
+    if (mobileBookBtn) mobileBookBtn.addEventListener('click', () => {
+        document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    if (heroMenuBtn) heroMenuBtn.addEventListener('click', () => document.getElementById('menu').scrollIntoView({ behavior: 'smooth' }));
     
-    if (heroBookBtn) {
-        heroBookBtn.addEventListener('click', () => {
-            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-    
-    if (mobileBookBtn) {
-        mobileBookBtn.addEventListener('click', () => {
-            document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    }
-    
-    if (heroMenuBtn) {
-        heroMenuBtn.addEventListener('click', () => {
-            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-    
-    // ========== SMOOTH SCROLL FOR ALL ANCHORS ==========
+    // ========== SMOOTH SCROLL FOR ANCHORS ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
-            
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
                 const navbarHeight = navbar ? navbar.offsetHeight : 80;
-                const offsetTop = target.offsetTop - navbarHeight;
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                window.scrollTo({ top: target.offsetTop - navbarHeight, behavior: 'smooth' });
             }
         });
     });
     
-    // ========== INITIALIZE ALL ==========
+    // ========== INITIALIZE ==========
     renderFeatured();
     renderMenu();
     renderTestimonials();
     renderGallery();
     setupFilters();
+    updateAdminOrders();  // Show current order count in admin panel
     
-    // ========== ADD RIPPLE EFFECT STYLES ==========
+    // ========== ADD ANIMATION STYLES ==========
     const style = document.createElement('style');
     style.textContent = `
-        .cart-pop {
-            animation: cartPop 0.3s ease;
-        }
-        @keyframes cartPop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        .featured-order, .dish-order {
-            transition: all 0.3s ease;
-        }
+        .cart-pop { animation: cartPop 0.3s ease; }
+        @keyframes cartPop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .featured-order, .dish-order { transition: all 0.3s ease; }
     `;
     document.head.appendChild(style);
     
-    console.log('Southy Foody - Premium Restaurant Website Loaded!');
+    console.log('Saffron Spoon - Loaded successfully! Admin password: admin123');
 });
