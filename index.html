@@ -66,7 +66,7 @@
       </ul>
       
       <div class="nav-actions">
-        <a href="tel:+919876543210" class="nav-call">
+        <a href="tel:+919431453730" class="nav-call">
           <i class="fas fa-phone-alt"></i>
           <span>+91 98765 43210</span>
         </a>
@@ -323,7 +323,7 @@
               <i class="fas fa-phone-alt"></i>
               <div>
                 <strong>Call to Book</strong>
-                <span>+91 98765 43210</span>
+                <span>+91 94314 53730</span>
               </div>
             </div>
             <div class="info-item">
@@ -457,7 +457,7 @@
         <div class="footer-col">
           <div class="footer-logo">
             <i class="fas fa-utensil-spoon"></i>
-            <span>Saffron</span> Spoon
+            <span>Southy</span> foody
           </div>
           <p class="footer-description">Where flavor meets elegance. Experience the finest Indian dining with authentic recipes and a warm ambiance.</p>
           <div class="footer-payment">
@@ -490,9 +490,9 @@
         <div class="footer-col">
           <h4>Contact Info</h4>
           <ul class="contact-list">
-            <li><i class="fas fa-phone-alt"></i> +91 98765 43210</li>
-            <li><i class="fas fa-envelope"></i> hello@saffronspoon.in</li>
-            <li><i class="fab fa-instagram"></i> @saffronspoon</li>
+            <li><i class="fas fa-phone-alt"></i> +91 94314 53730</li>
+            <li><i class="fas fa-envelope"></i> hello@southyfoody.in</li>
+            <li><i class="fab fa-instagram"></i> @Southy_foody</li>
           </ul>
         </div>
       </div>
@@ -515,8 +515,65 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="java.js"></script>
+  <!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="java.js"></script>
+
+<!-- Admin Login Button - Styled to match website -->
+<button onclick="showAdminPanel()" class="admin-login-btn" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    padding: 12px 20px;
+    border: none;
+    background: linear-gradient(135deg, #c17a2b, #a05a1a);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    backdrop-filter: blur(5px);
+">
+    <i class="fas fa-user-shield"></i> Admin Login
+</button>
+
+<!-- Admin Dashboard Panel -->
+<div id="adminPanel" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    z-index: 10000;
+    min-width: 280px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+">
+    <h2 style="color: #c17a2b; margin-bottom: 20px;">
+        <i class="fas fa-user-shield"></i> Admin Dashboard
+    </h2>
+    <p style="margin: 15px 0; font-size: 18px;">
+        Total Orders: <strong id="orderCount" style="font-size: 28px; color: #c17a2b;">0</strong>
+    </p>
+    <button onclick="document.getElementById('adminPanel').style.display='none'" style="
+        margin-top: 20px;
+        padding: 10px 25px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+    ">
+        Close
+    </button>
+</div>
 </body>
 </html>
